@@ -1,0 +1,118 @@
+/* sacado de aqui
+https://www.youtube.com/watch?v=T4t00Hd3qZc */
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    height: 100%;
+}
+
+
+body {
+    font-family: "Public Sans", sans-serif;
+    font-size: 1.2rem;
+    min-height: 100%;
+}
+
+.grid-container > * {
+    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0 , 0.75);
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+
+}
+
+
+.header {
+    grid-area: header;
+    background-color: burlywood;
+}
+
+.navbar{
+    grid-area: navbar;
+    background-color: aquamarine;
+}
+
+.main{
+    grid-area: main;
+    background-color: gray
+}
+
+.sidebar{
+    grid-area: sidebar;
+    background-color: blueviolet;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: azure;
+}
+
+.grid-container {
+    display: grid;
+    gap: 10px;
+   /*  grid-template-areas: 
+    "header"
+    "navbar"
+    "main"
+    "sidebar"
+    "footer"; */
+    grid-template: 
+    "header" 100px
+    "navbar" 50px
+    "main"  auto
+    "sidebar" 100px
+    "footer" 75px;
+
+
+
+}
+
+@media (min-width: 600px){
+    .grid-container{
+       /*  
+        forma 1
+
+        grid-template-columns: 200px auto;
+        grid-template-rows: 100px 50px auto 100px;
+        background-color: blue;
+        grid-template-areas: 
+        "header header"
+        "navbar navbar"
+        "sidebar main"
+        "footer footer"; 
+        */
+
+        /* forma 2 */
+
+        grid-template: 
+        " . header" 100px
+        "navbar navbar" 50px
+        "sidebar main" auto
+        "footer footer" 75px /
+        200px   auto;
+
+    }
+}
+
+@media (min-width: 900px){
+    .grid-container{
+        grid-template:
+        "header header header" 100px
+        "navbar main sidebar" auto
+        "footer footer footer" 75px /
+        200px auto 200px;
+    }
+}
+
+
+/* OJO: Las areas de nuetro grid 
+siempre son en forma de rectangulo */
+
+/* https://www.youtube.com/watch?v=Sgf4HEAW-gQ */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
